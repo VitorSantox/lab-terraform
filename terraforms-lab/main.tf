@@ -5,7 +5,7 @@ resource "google_container_cluster" "primary" {
   #remove o node pool padrão
   remove_default_node_pool = true
   initial_node_count = 1
-
+}
 #criando manualmente a config do pool de no com-pool pra diferenciar do nome do cluster
 resource "google_container_node_pool" "primary_nodes" {
   name = "${var.cluster_name}-pool"
