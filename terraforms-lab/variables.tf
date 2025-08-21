@@ -10,5 +10,5 @@ variable "region" {
 
 variable "cluster_name" {
   type = string
-  default = "terraform-cluster"
+  default = "terraform-cluster-3"
 }
