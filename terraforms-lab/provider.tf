@@ -4,7 +4,7 @@ provider "google" {
 }
 
 terraform {
-  required_pviders {
+  required_providers {
     google = {
       source = "hashicorp/google"
       version = "~> 5.0"
