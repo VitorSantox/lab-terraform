@@ -1,5 +1,5 @@
 variable "project_id" {
-  types = "string"
+  type = "string"
   description = "devops-466923"
 }
 
