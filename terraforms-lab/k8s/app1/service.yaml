@@ -1,1 +1,12 @@
-iser
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1
+spec:
+  type: Loadbalancer
+  Selector:
+    app: app1
+  ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 8080
