@@ -1,4 +1,4 @@
-variables "project_id" {
+variable "project_id" {
   types = string
   description = "devops-466923"
 }
@@ -8,7 +8,7 @@ variable "region" {
   default = "us-central1"
 }
 
-variables "cluster_name"
+variable "cluster_name"
   type = string
   default = "terraform-cluster"
 }
