@@ -23,7 +23,7 @@ variable "machine_type" {
   default = "e2-micro"
 }
 
-variable "disk_size"
+variable "disk_size" {
   type = number
   default = 30
 }
