@@ -1,14 +1,14 @@
 variable "project_id" {
-  type = "string"
+  type = string
   description = "devops-466923"
 }
 
 variable "region" {
-  type = "string"
+  type = string
   default = "us-central1"
 }
 
 variable "cluster_name" {
-  type = "string"
+  type = string
   default = "terraform-cluster"
 }
