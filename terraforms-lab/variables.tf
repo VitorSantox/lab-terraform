@@ -8,7 +8,7 @@ variable "region" {
   default = "us-central1"
 }
 
-variable "cluster_name"
+variable { "cluster_name"
   type = "string"
   default = "terraform-cluster"
 }
