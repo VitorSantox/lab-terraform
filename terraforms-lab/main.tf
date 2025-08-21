@@ -20,7 +20,7 @@ resource "google_container_node_pool" "primary_nodes" {
     disk_type = var.disk_type
     #Escopo de autenticacao que os nos terao para aecssar apis na gcp
     #aqui usamos "cloud-plataform", que dá acesso amplo (bom para labs, mas em prd o ideal e restringir
-    ouath_scopes = [
+    oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
       ]
   }
