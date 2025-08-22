@@ -1,3 +1,6 @@
+#------------------------------------------------
+
+
 resource "google_container_cluster" "primary" {
   name = var.cluster_name
   location = var.region
@@ -7,9 +10,10 @@ resource "google_container_cluster" "primary" {
   initial_node_count = 1
   deletion_protection = false
 }
-
+#-------------------------------------------------
 
 #criando manualmente a config do pool de no com-pool pra diferenciar do nome do cluster
+
 resource "google_container_node_pool" "primary_nodes" {
   name = "${var.cluster_name}-pool"
   location = var.region

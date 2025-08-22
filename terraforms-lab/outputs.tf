@@ -1,4 +1,4 @@
-output "cluster_name" {
+output "terraform-cluster-4" {
   value = google_container_cluster.primary.name
 }
 
