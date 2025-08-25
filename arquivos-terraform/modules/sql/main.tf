@@ -8,13 +8,9 @@ resource "google_sql_database_instance" "db" {    # Instância Cloud SQL
     tier = var.db_tier                             # Tamanho (barato p/ lab)
 
     ip_configuration {                             # Rede/IP
-      ipv4_enabled = true                          # Habilita IP público
-      authorized_networks = [                      # Libera acesso (LAB APENAS)
-        {
+      authorized_networks = {                      # Libera acesso (LAB APENAS)
           name  = "open-lab"                       # Rótulo da regra
           value = "0.0.0.0/0"                      # ⚠️ Aberto ao mundo (não faça em prod)
-        }
-      ]
     }
   }
 }
