@@ -1,15 +1,15 @@
-provider "google" {
-  project = var.project_id
-  region = var.region
-}
+terraform {                                         # Bloco Terraform
+  required_version = ">= 1.6.0"                     # Versão mínima do Terraform
 
-terraform {
-  required_providers {
-    google = {
-      source = "hashicorp/google"
-      version = "~> 5.0"
+  required_providers {                              # Providers usados
+    google = {                                      # Provider Google
+      source  = "hashicorp/google"                  # Origem oficial
+      version = "~> 5.0"                            # Faixa de versão estável
     }
   }
+}
 
-  required_version = ">= 1.0"
+provider "google" {                                 # Configura o provider Google
+  project = var.project_id                          # Projeto alvo
+  region  = var.region                              # Região padrão
 }

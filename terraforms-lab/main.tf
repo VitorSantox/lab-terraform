@@ -1,35 +1,30 @@
-#------------------------------------------------
-
-
-resource "google_container_cluster" "primary" {
-  name = var.cluster_name
-  location = var.region
-
-  #remove o node pool padrão
-  remove_default_node_pool = true
-  initial_node_count = 1
-  deletion_protection = false
+module "gke" {                                      # Módulo do GKE
+  source            = "./modules/gke"                # Caminho do módulo
+  project_id        = var.project_id                 # Projeto
+  region            = var.region                     # Região
+  cluster_name      = var.cluster_name               # Nome do cluster
+  node_count        = var.node_count                 # Nós (lab: 1)
+  machine_type      = var.machine_type               # Tipo de máquina
+  disk_size         = var.disk_size                  # Tamanho do disco
+  disk_type         = var.disk_type                  # Tipo do disco
+  deletion_protection = false                        # Destrutível no lab
 }
-#-------------------------------------------------
 
-#criando manualmente a config do pool de no com-pool pra diferenciar do nome do cluster
-
-resource "google_container_node_pool" "primary_nodes" {
-  name = "${var.cluster_name}-pool"
-  location = var.region
-  cluster = google_container_cluster.primary.name #liga este node_pool ao clsuter que criamos acima
-  node_count = var.node_count
-
-  #configuração dos no (maquina virtuais que compoes o cluster)
-  node_config {
-    machine_type = var.machine_type
-    disk_size_gb = var.disk_size
-    disk_type = var.disk_type
-    #Escopo de autenticacao que os nos terao para aecssar apis na gcp
-    #aqui usamos "cloud-plataform", que dá acesso amplo (bom para labs, mas em prd o ideal e restringir
-    oauth_scopes = [
-      "https://www.googleapis.com/auth/cloud-platform",
-      ]
-  }
+module "pubsub" {                                   # Módulo do Pub/Sub
+  source            = "./modules/pubsub"             # Caminho do módulo
+  project_id        = var.project_id                 # Projeto
+  topic_name        = var.pubsub_topic_name          # Nome do tópico
+  subscription_name = var.pubsub_subscription_name   # Nome da assinatura
 }
- 
+
+module "sql" {                                      # Módulo do Cloud SQL
+  source           = "./modules/sql"                 # Caminho do módulo
+  project_id       = var.project_id                  # Projeto
+  region           = var.region                      # Região
+  db_instance_name = var.db_instance_name            # Nome da instância
+  db_version       = var.db_version                  # Versão do Postgres
+  db_tier          = var.db_tier                     # Tamanho (barato p/ lab)
+  db_name          = var.db_name                     # Database lógico
+  db_user          = var.db_user                     # Usuário de app
+  db_password      = var.db_password                 # Senha (use TF_VAR_*)
+}
