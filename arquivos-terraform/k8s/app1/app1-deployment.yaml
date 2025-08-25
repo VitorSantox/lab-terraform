@@ -1,19 +1,35 @@
-apiversion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1
+  name: api1-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: app1
-  template: 
+      app: api1
+  template:
     metadata:
       labels:
-        app: app1
+        app: api1
     spec:
       containers:
-       - name: app1
-         image: gcr.io/google-samples/hello-app:1.0
-         ports:
-          - containerPort: 8080
+      - name: api1
+        image: gcr.io/google-samples/pubsub-producer:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PUBSUB_TOPIC
+          valueFrom:
+            configMapKeyRef:
+              name: api1-config
+              key: pubsub_topic
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /secrets/key.json
+        volumeMounts:
+        - name: secret-volume
+          mountPath: /secrets
+          readOnly: true
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: gcp-key-secret
