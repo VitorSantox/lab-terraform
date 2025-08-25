@@ -11,8 +11,9 @@ resource "google_sql_database_instance" "db" {    # Instância Cloud SQL
       authorized_networks = {                      # Libera acesso (LAB APENAS)
           name  = "open-lab"                       # Rótulo da regra
           value = "0.0.0.0/0"                      # ⚠️ Aberto ao mundo (não faça em prod)
+        }
+      }
     }
-  }
 }
 
 resource "google_sql_database" "app" {             # Banco (schema lógico) para a app
