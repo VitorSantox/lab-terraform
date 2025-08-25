@@ -9,25 +9,26 @@ Ele foi projetado para **estudos e experimentação**, com configuração mínim
 ## 📁 Estrutura do Projeto
 
 ```
-lab-terraform-main/
- ├── README.md
- ├── terraform.tfstate
- └── terraforms-lab/
-      ├── main.tf
-      ├── outputs.tf
-      ├── provider.tf
-      ├── variables.tf
-      ├── terraform.tfvars
-      ├── .terraform.lock.hcl
-      ├── terraform.tfstate
-      ├── terraform.tfstate.backup
-      ├── k8s/
-          ├── app1/
-          │   ├── app1-deployment.yaml
-          │   └── app1-service.yaml
-          └── app2/
-              ├── app2-deployment.yaml
-              └── app2-service.yaml
+terraforms-lab/
+├── main.tf                 # chama os módulos
+├── variables.tf            # variáveis de alto nível
+├── outputs.tf              # outputs consolidados
+├── provider.tf             # provider + (opcional) backend remoto
+├── terraform.tfvars        # valores para o seu lab
+└── modules/
+    ├── gke/
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   └── outputs.tf
+    ├── pubsub/
+    │   ├── main.tf
+    │   ├── variables.tf
+    │   └── outputs.tf
+    └── sql/
+        ├── main.tf
+        ├── variables.tf
+        └── outputs.tf
+
 
 ```
 
