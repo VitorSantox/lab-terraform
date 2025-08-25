@@ -9,15 +9,26 @@ Ele foi projetado para **estudos e experimentação**, com configuração mínim
 ## 📁 Estrutura do Projeto
 
 ```
-terraform-gke-k8s-lab/
-├── main.tf             # Configuração principal do cluster e node pool
-├── variables.tf        # Declaração das variáveis do Terraform
-├── outputs.tf          # Outputs úteis (endpoint do cluster, etc)
-├── provider.tf         # Configuração do provider GCP
-├── terraform.tfvars    # Valores personalizados para as variáveis
-└── k8s/                # Aplicações de teste no Kubernetes
-    ├── deployment.yaml # Deployment do app
-    └── service.yaml    # Service (ClusterIP)
+lab-terraform-main/
+ ├── README.md
+ ├── terraform.tfstate
+ └── terraforms-lab/
+      ├── main.tf
+      ├── outputs.tf
+      ├── provider.tf
+      ├── variables.tf
+      ├── terraform.tfvars
+      ├── .terraform.lock.hcl
+      ├── terraform.tfstate
+      ├── terraform.tfstate.backup
+      ├── k8s/
+          ├── app1/
+          │   ├── app1-deployment.yaml
+          │   └── app1-service.yaml
+          └── app2/
+              ├── app2-deployment.yaml
+              └── app2-service.yaml
+
 ```
 
 ---
