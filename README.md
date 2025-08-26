@@ -9,25 +9,50 @@ Ele foi projetado para **estudos e experimentação**, com configuração mínim
 ## 📁 Estrutura do Projeto
 
 ```
-terraforms-lab/
-├── main.tf                 # chama os módulos
-├── variables.tf            # variáveis de alto nível
-├── outputs.tf              # outputs consolidados
-├── provider.tf             # provider + (opcional) backend remoto
-├── terraform.tfvars        # valores para o seu lab
-└── modules/
-    ├── gke/
-    │   ├── main.tf
-    │   ├── variables.tf
-    │   └── outputs.tf
-    ├── pubsub/
-    │   ├── main.tf
-    │   ├── variables.tf
-    │   └── outputs.tf
-    └── sql/
-        ├── main.tf
-        ├── variables.tf
-        └── outputs.tf
+lab-terraform/
+├── README.md
+├── terraform.tfstate
+└── arquivos-terraform/
+    ├── main.tf                  # Chama os módulos
+    ├── provider.tf              # Provider GCP
+    ├── variables.tf             # Variáveis globais
+    ├── terraform.tfvars         # Valores das variáveis
+    ├── outputs.tf               # Outputs gerais
+    ├── .terraform.lock.hcl
+    ├── terraform.tfstate
+    ├── terraform.tfstate.backup
+    ├── modules/
+	├── gke/
+	│   ├── main.tf
+	│   ├── variables.tf
+	│   └── outputs.tf
+	├── pubsub/
+	│   ├── main.tf
+	│   ├── variables.tf
+	│   └── outputs.tf
+	└── sql/
+	    ├── main.tf
+	    ├── variables.tf
+	    └── outputs.tf
+├── k8s/
+    ├── app1/
+	│   ├── app1-deployment.yaml
+	│   ├── app1-service.yaml
+	│   ├── app1-secret.yaml
+	│   └── app1-service.yaml
+    ├── app1/
+	│   ├── app2-deployment.yaml
+	│   ├── app2-service.yaml
+	│   ├── app2-secret.yaml
+	│   └── app2-service.yaml
+├── app1-produtora
+  ├── Dockerfile
+  ├── main.py (ou app.js)
+  └── pubsub_client.py
+├── app2-consumidora
+  ├── Dockerfile
+  ├── main.py (ou app.js)
+  └── pubsub_client.py
 
 
 ```
