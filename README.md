@@ -34,17 +34,27 @@ lab-terraform/
 	    ├── main.tf
 	    ├── variables.tf
 	    └── outputs.tf
+
+
 ├── k8s/
     ├── app1/
 	│   ├── app1-deployment.yaml
 	│   ├── app1-service.yaml
 	│   ├── app1-secret.yaml
 	│   └── app1-service.yaml
-    └── app1/
-	    ├── app2-deployment.yaml
-	    ├── app2-service.yaml
-	    ├── app2-secret.yaml
-	    └── app2-service.yaml
+    ├── app1/
+	|    ├── app2-deployment.yaml
+	|    ├── app2-service.yaml
+	|    ├── app2-secret.yaml
+	|    └── app2-service.yaml
+	├── nginx-app/
+	|	 ├── nginx-deployment.yaml
+	|    ├── nginx-service.yaml
+    └── echo-app/
+         ├── echo-deployment.yaml
+         ├── echo-service.yaml
+
+
 ├── app1-produtora
   ├── Dockerfile
   ├── main.py (ou app.js)
