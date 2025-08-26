@@ -40,11 +40,11 @@ lab-terraform/
 	│   ├── app1-service.yaml
 	│   ├── app1-secret.yaml
 	│   └── app1-service.yaml
-    ├── app1/
-	│   ├── app2-deployment.yaml
-	│   ├── app2-service.yaml
-	│   ├── app2-secret.yaml
-	│   └── app2-service.yaml
+    └── app1/
+	    ├── app2-deployment.yaml
+	    ├── app2-service.yaml
+	    ├── app2-secret.yaml
+	    └── app2-service.yaml
 ├── app1-produtora
   ├── Dockerfile
   ├── main.py (ou app.js)
