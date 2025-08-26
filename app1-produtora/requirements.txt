@@ -1,0 +1,22 @@
+# APP1-PRODUTORA - Dependências Python
+# ====================================
+# Dependências otimizadas para produção
+# Versões fixas para garantir reprodutibilidade
+
+# FastAPI e servidor ASGI
+fastapi==0.104.1          # Framework web moderno e rápido
+uvicorn[standard]==0.24.0 # Servidor ASGI para produção
+
+# Google Cloud
+google-cloud-pubsub==2.18.4  # Cliente oficial Pub/Sub
+google-auth==2.23.4          # Autenticação GCP
+google-api-core==2.12.0      # Core APIs do Google Cloud
+
+# Validação e serialização
+pydantic==2.5.0           # Validação de dados e serialização JSON
+
+# Logging e monitoramento
+structlog==23.2.0         # Logging estruturado (opcional para upgrade futuro)
+
+# Utilitários
+python-multipart==0.0.6  # Para parsing de form data (caso necessário)

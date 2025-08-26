@@ -1,0 +1,10 @@
+# requirements.txt
+# Lista de dependências do app2-consumidora
+# Inclui FastAPI para API de monitoramento, Pub/Sub para mensagens e asyncpg para PostgreSQL.
+
+fastapi==0.111.0
+uvicorn==0.30.0
+google-cloud-pubsub==2.21.5
+google-auth==2.31.0
+asyncpg==0.29.0
+pydantic==2.7.0
